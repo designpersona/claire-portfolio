@@ -544,18 +544,23 @@
     </header>
 
 
-    <main class="grid grid-cols-1 gap-8 lg:grid-cols-[1fr,300px] h-screen overflow-hidden">
-      <!-- 왼쪽: 콘텐츠 / 갤러리 -->
-      <section id="pane" class="h-full overflow-y-auto pb-24 pt-24" aria-live="polite">
-      </section>
+    <main class="grid grid-cols-1 gap-8 lg:grid-cols-[1fr,300px] lg:h-screen lg:overflow-hidden">
+  <!-- 왼쪽: 콘텐츠 / 갤러리 -->
+  <section
+    id="pane"
+    class="pb-24 pt-24 lg:h-full lg:overflow-y-auto"
+    aria-live="polite">
+  </section>
 
-      <!-- 오른쪽: 데스크톱 메뉴 리스트 -->
-      <aside class="hidden lg:block h-full overflow-y-auto pb-24 pt-24">
-        <div class="flex h-full flex-col">
-          <nav id="projectListDesktop" class="flex-1 pb-24"></nav>
-        </div>
-      </aside>
-    </main>
+  <!-- 오른쪽: 데스크톱 메뉴 리스트 -->
+  <aside
+    class="hidden lg:block pb-24 pt-24 lg:h-full lg:overflow-y-auto">
+    <div class="flex h-full flex-col">
+      <nav id="projectListDesktop" class="flex-1 pb-24"></nav>
+    </div>
+  </aside>
+</main>
+
   </div>
 
   <!-- Mobile Footer -->
