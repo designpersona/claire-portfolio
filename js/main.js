@@ -1717,10 +1717,8 @@ function landingFeaturedProjectHTML() {
             <img src="assets/logo/ChatBook_Symbol.png" alt="${title}" loading="lazy" decoding="async" />
           </h2>
           <p>${summary}</p>
-          <div class="landing-featured-downloads" aria-label="${currentLang === 'ko' ? '다운로드 옵션' : 'Download options'}">
-            <span aria-disabled="true">macOS</span>
-            <span aria-disabled="true">Windows</span>
-            <span aria-disabled="true">Linux</span>
+          <div class="landing-featured-downloads" aria-label="${currentLang === 'ko' ? '프로젝트 상세' : 'Project details'}">
+            <a href="#/chatlog">${currentLang === 'ko' ? '자세히 보기' : 'View details'}</a>
           </div>
         </div>
       </div>

@@ -7752,7 +7752,8 @@ body.landing-page-active .landing-featured-downloads {
   margin-top: clamp(1rem, 1.8vw, 1.8rem);
 }
 
-body.landing-page-active .landing-featured-downloads span {
+body.landing-page-active .landing-featured-downloads span,
+body.landing-page-active .landing-featured-downloads a {
   display: inline-flex;
   min-height: 36px;
   align-items: center;
@@ -7765,8 +7766,15 @@ body.landing-page-active .landing-featured-downloads span {
   font-weight: 800;
   line-height: 1;
   text-decoration: none;
-  cursor: not-allowed;
   opacity: 0.9;
+}
+
+body.landing-page-active .landing-featured-downloads span {
+  cursor: not-allowed;
+}
+
+body.landing-page-active .landing-featured-downloads a {
+  cursor: pointer;
 }
 
 body.landing-page-active .landing-featured-service-cta {
