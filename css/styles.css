@@ -10431,6 +10431,7 @@ body.detail-page-active .detail-header-row {
   body.detail-page-active {
     --detail-header-height: 76px;
     --detail-focus-height: 56px;
+    --detail-content-gap: 28px;
   }
 
   body.detail-page-active header#mainHeader {
@@ -10468,7 +10469,7 @@ body.detail-page-active .detail-header-row {
     height: 100% !important;
     min-height: calc(100vh - var(--detail-header-height)) !important;
     flex-direction: column !important;
-    padding-top: var(--detail-focus-height) !important;
+    padding-top: calc(var(--detail-focus-height) + var(--detail-content-gap)) !important;
     box-sizing: border-box !important;
   }
 
