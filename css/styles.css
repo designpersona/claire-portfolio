@@ -11203,6 +11203,16 @@ body.detail-page-active .detail-header-row {
     align-self: flex-start !important;
   }
 
+  body.landing-page-active .landing-featured-downloads {
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+  }
+
+  body.landing-page-active .landing-featured-downloads a {
+    width: 100% !important;
+    min-height: 42px !important;
+  }
+
   body.landing-page-active .landing-featured-fallback-image {
     display: none !important;
   }
@@ -11523,6 +11533,16 @@ body.detail-page-active .detail-header-row {
   body.landing-page-active .landing-featured-downloads {
     align-self: center !important;
     justify-content: center !important;
+  }
+
+  body.landing-page-active .landing-featured-downloads {
+    flex-wrap: nowrap !important;
+    width: min(100%, 220px) !important;
+  }
+
+  body.landing-page-active .landing-featured-downloads a {
+    width: 100% !important;
+    min-height: 42px !important;
   }
 
   body.landing-page-active .landing-featured-nav {
