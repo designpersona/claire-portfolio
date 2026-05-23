@@ -12140,4 +12140,19 @@ body.detail-page-active .detail-header-row {
   body.mobile-mode.detail-page-active.detail-page-active .detail-hero-media {
     padding-top: 8px !important;
   }
+
+  body.mobile-mode.landing-page-active .landing-featured-downloads,
+  body.landing-page-active .landing-featured-downloads {
+    align-self: center !important;
+    justify-content: center !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  body.mobile-mode.landing-page-active .landing-featured-downloads a,
+  body.landing-page-active .landing-featured-downloads a {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    text-align: center !important;
+  }
 }
