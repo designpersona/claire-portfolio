@@ -11826,9 +11826,14 @@ body.detail-page-active .detail-header-row {
   body.landing-page-active .hero-down-btn,
   body.landing-page-active .dash-category-cell,
   body.landing-page-active .dash-details,
-  body.landing-page-active .landing-featured-nav,
+  body.landing-page-active .landing-featured-downloads,
+  body.landing-page-active .landing-featured-downloads a,
   body.landing-page-active .landing-featured-nav button {
     pointer-events: auto !important;
+  }
+
+  body.landing-page-active .landing-featured-nav {
+    pointer-events: none !important;
   }
 
   body.mobile-mode #mobileSearchBtn,
