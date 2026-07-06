@@ -810,7 +810,7 @@ window.PROJECT_DATA = {
             "links": [],
             "gallery": [
                 {
-                    "src": "assets/projects/Gullyjumper/cover.jpg",
+                    "src": "assets/projects/Gullyjumper/1.jpg",
                     "caption": " "
                 },
                 {
