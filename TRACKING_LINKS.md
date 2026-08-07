@@ -14,6 +14,23 @@
 
 Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 녹화를 구분합니다.
 
+## 채용 지원용 전체 포트폴리오
+
+기존에 전달한 `designpersona.kr/#/...` 주소는 공사중 페이지를 표시합니다. 신규 지원처에는 아래 형식의 전용 주소를 전달합니다.
+
+`https://designpersona.kr/portfolio.html?utm_source=company_name&utm_medium=job_application&utm_campaign=2026_hiring&utm_content=position_name#/archive`
+
+- `portfolio.html`: 전체 포트폴리오를 보여주는 화면
+- `utm_source`: 지원 회사 이름
+- `utm_content`: 직무 또는 공고 식별자
+- `#/archive`: 전체 프로젝트 목록으로 바로 이동
+
+예시:
+
+`https://designpersona.kr/portfolio.html?utm_source=company-a&utm_medium=job_application&utm_campaign=2026_hiring&utm_content=brand-designer#/archive`
+
+UTM 자체가 포트폴리오를 여는 열쇠는 아닙니다. `portfolio.html` 경로가 화면을 나누고, UTM은 방문 출처를 기록합니다.
+
 ## 채널별 링크 예시
 
 아래 링크는 그대로 복사하되 `utm_content`만 실제 게시물 이름으로 바꾸면 됩니다.
@@ -34,6 +51,8 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 기존 특정 프로젝트 주소도 추적할 수 있습니다. 쿼리 문자열을 `#`보다 앞에 둬야 합니다.
 
 `https://designpersona.kr/?utm_source=board_name&utm_medium=referral&utm_campaign=portfolio_lock&utm_content=chatlog#/chatlog`
+
+기존 데자뷰 메이크업 프로젝트 주소 `https://designpersona.kr/#/eye-makeup`은 공사중 페이지로 들어오며, Clarity에는 `entry_route=eye-makeup`으로 남습니다.
 
 ## 해석할 때 주의할 점
 

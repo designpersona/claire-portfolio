@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ff6a00">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Gyuri Min | Portfolio</title>
+  <link rel="icon" href="./assets/icons/favicon2.png" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "unahd0ky9n");
+  </script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var referrerHost = 'direct';
+
+      try {
+        if (document.referrer) referrerHost = new URL(document.referrer).hostname || 'referral';
+      } catch (error) {
+        referrerHost = 'referral';
+      }
+
+      var safe = function (value) {
+        return String(value || 'unknown').slice(0, 120);
+      };
+      var source = params.get('utm_source') || params.get('ref') || referrerHost;
+      var medium = params.get('utm_medium') || (source === 'direct' ? 'none' : 'referral');
+      var campaign = params.get('utm_campaign') || 'job_application';
+      var content = params.get('utm_content') || 'full_portfolio';
+
+      window.clarity('set', 'site_mode', 'application_full');
+      window.clarity('set', 'entry_source', safe(source));
+      window.clarity('set', 'entry_medium', safe(medium));
+      window.clarity('set', 'entry_campaign', safe(campaign));
+      window.clarity('set', 'entry_content', safe(content));
+      window.clarity('set', 'entry_route', safe((window.location.hash || '#/archive').replace(/^#\/?/, '') || 'archive'));
+      window.clarity('event', 'application_portfolio_view');
+
+      window.addEventListener('hashchange', function () {
+        window.clarity('set', 'portfolio_route', safe((window.location.hash || '#/').replace(/^#\/?/, '') || 'home'));
+        window.clarity('event', 'application_route_view');
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var hash = window.location.hash || '#/';
+      if (hash && hash !== '#/' && hash !== '#') {
+        document.documentElement.classList.add('route-nonlanding-pending');
+      }
+    })();
+  </script>
+  <style>
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    :root {
+      --font-outfit: 'Outfit', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-outfit);
+    }
+
+    body > .w-full:first-of-type {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    html.route-nonlanding-pending #pane > .dashboard-hero {
+      display: none !important;
+    }
+  </style>
+  <link rel="stylesheet" href="css/styles.css?v=20260529-feature-link-3" />
+  <style id="mobileChromeGuardInline">
+    @media (max-width: 1023px) {
+      body.mobile-mode header#mainHeader {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        z-index: 120 !important;
+        background: var(--accent-orange) !important;
+        background-color: var(--accent-orange) !important;
+        border-bottom: 1px solid #111 !important;
+        overflow: hidden !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+      }
+
+      body.mobile-mode header#mainHeader > .w-full,
+      body.mobile-mode header#mainHeader > .w-full > .relative.flex {
+        background: var(--accent-orange) !important;
+        background-color: var(--accent-orange) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+      }
+
+      body.mobile-mode:not(.landing-page-active):not(.detail-page-active):not(.archive-page-active) header#mainHeader,
+      body.mobile-mode.detail-page-active:not(.header-collapsed) header#mainHeader,
+      body.mobile-mode.archive-page-active:not(.header-collapsed) header#mainHeader,
+      body.mobile-mode.landing-page-active.landing-header-revealed header#mainHeader {
+        transform: translate3d(0, 0, 0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+
+      body.mobile-mode.detail-page-active.header-collapsed header#mainHeader,
+      body.mobile-mode.archive-page-active.header-collapsed header#mainHeader,
+      body.mobile-mode.landing-page-active:not(.landing-header-revealed) header#mainHeader {
+        transform: translate3d(0, -100%, 0) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+
+      body.mobile-mode #scrollTopBtn {
+        position: fixed !important;
+        right: 18px !important;
+        bottom: calc(env(safe-area-inset-bottom) + 22px) !important;
+        z-index: 140 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #111 !important;
+        color: #fff !important;
+      }
+
+      body.mobile-mode #scrollTopBtn.visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+
+      body.mobile-mode #scrollTopBtn:not(.visible) {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+
+      body.detail-page-active .detail-wrapper,
+      body.mobile-mode.detail-page-active .detail-wrapper {
+        padding-top: 56px !important;
+      }
+
+      body.detail-page-active .detail-header-row,
+      body.mobile-mode.detail-page-active .detail-header-row {
+        display: flex !important;
+        min-height: 56px !important;
+        margin-top: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+      }
+
+      body.mobile-mode.archive-page-active #pane .mobile-archive-grid .portfolio-card-body,
+      body.mobile-mode.archive-page-active #pane .mobile-archive-grid .portfolio-card-meta {
+        min-width: 0 !important;
+        overflow: hidden !important;
+      }
+
+      body.mobile-mode.archive-page-active #pane .mobile-archive-grid .portfolio-card-meta span:last-child {
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body class="text-neutral-900">
+  <script>
+    (function () {
+      var hash = window.location.hash || '#/';
+      if (hash === '#/' || hash === '') {
+        document.body.classList.add('landing-page-active');
+      } else if (hash.indexOf('#/archive') === 0) {
+        document.body.classList.add('archive-page-active');
+      }
+    })();
+  </script>
+  <div class="w-full">
+    <header id="mainHeader" class="fixed left-0 right-0 z-50 bg-white transition-transform duration-300">
+      <!-- Top Bar (Now inside Header) -->
+      <div id="topBar" class="bg-[var(--accent-orange)] border-b border-neutral-200">
+        <div class="w-full px-4 md:px-6 lg:px-8">
+          <div id="topBarRow" class="flex items-center justify-between gap-5 py-2">
+            <!-- About Me -->
+            <a href="#/about" id="topBarAboutLink"
+              class="hidden lg:block text-[12px] font-medium text-neutral-900 hover:opacity-70 transition-opacity uppercase tracking-wide">
+              ABOUT ME
+            </a>
+            <span class="hidden lg:block text-neutral-400">|</span>
+            <!-- Language Switcher -->
+            <div class="hidden lg:flex items-center gap-4 relative group cursor-pointer">
+              <button id="topBarLangBtn"
+                class="text-[12px] font-medium text-neutral-900 flex items-center gap-1 hover:opacity-70 transition-opacity uppercase tracking-wide">
+                <span id="topBarLangLabel">EN</span>
+                <svg class="w-2.5 h-2.5 ml-0.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="language-dropdown-wrapper">
+                <div class="language-dropdown-content">
+                  <div class="py-1">
+                    <button
+                      class="block w-full text-left px-4 py-2.5 text-[13px] hover:bg-neutral-50 transition-colors topbar-lang-option text-neutral-600 hover:text-neutral-900"
+                      data-lang="en">English</button>
+                    <button
+                      class="block w-full text-left px-4 py-2.5 text-[13px] hover:bg-neutral-50 transition-colors topbar-lang-option text-neutral-600 hover:text-neutral-900"
+                      data-lang="ko">Korean</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full px-4 md:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between py-0 md:py-4">
+          <!-- LEFT: Search Box -->
+          <div class="flex items-center flex-1">
+            <!-- Header Language Switcher -->
+            <div class="hidden lg:flex items-center gap-2 mr-5 text-[13px] font-medium tracking-wide">
+              <button class="desktop-lang-toggle transition-colors" data-lang="en">EN</button>
+              <span class="text-black font-light">|</span>
+              <button class="desktop-lang-toggle transition-colors" data-lang="ko">KO</button>
+            </div>
+
+            <div class="hidden lg:flex items-center desktop-search">
+              <input type="text" id="searchInput" placeholder="Search..." class="text-[14px]">
+              <span class="desktop-search-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"></circle>
+                  <path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.5"></path>
+                </svg>
+              </span>
+            </div>
+            <!-- Mobile Search Icon -->
+            <div class="lg:hidden flex items-center gap-2">
+              <button id="mobileSearchBtn" class="inline-flex items-center justify-center w-11 h-11 text-black"
+                aria-label="Open search">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"></circle>
+                  <path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.5"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- CENTER: BRAND -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <a href="#/" id="brandLink"
+              class="font-semibold tracking-tight toplink text-[44px] leading-tight text-neutral-900 lg:text-[36px] flex items-center whitespace-nowrap">
+              <svg class="design-persona-mark" viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12.35 0h9.15c4.15 0 7.2 3.12 7.72 7.48H25c-7.1 0-12.15-2.78-12.65-7.48Z"></path>
+                <circle cx="25" cy="30.85" r="16.9" fill="none" stroke="currentColor" stroke-width="4.15"></circle>
+              </svg>Design Persona
+            </a>
+          </div>
+
+          <!-- RIGHT: Menu -->
+          <div class="flex items-center justify-end flex-1">
+            <!-- Desktop Hamburger Menu -->
+            <button id="desktopMenuBtn"
+              class="hidden lg:inline-flex items-center justify-center w-12 h-12 text-black"
+              aria-label="Open menu" aria-controls="desktopMenu" aria-expanded="false">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+            </button>
+            <!-- Mobile Hamburger Menu -->
+            <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center w-12 h-12 text-black -mr-3"
+              aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 12h18" stroke="currentColor" stroke-width="1.5" />
+                <path d="M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- View Toggle Menu Bar (Desktop only) -->
+    <div id="viewToggleBar"
+      class="hidden fixed left-0 right-0 z-45 bg-neutral-100 border-b border-neutral-200 items-center justify-between px-4 md:px-6 lg:px-8">
+      <span id="desktopResultCount" class="text-[11px] font-medium text-neutral-600 hidden"></span>
+      <div class="catalog-filter-strip hidden lg:grid">
+        <label class="catalog-filter-cell" for="archiveSortSelect">
+          <span></span>
+          <select id="archiveSortSelect" class="catalog-filter-select" aria-label="Archive sort">
+            <option value="latest">New</option>
+            <option value="featured">Featured</option>
+            <option value="oldest">Oldest</option>
+          </select>
+        </label>
+        <label class="catalog-filter-cell" for="archiveFocusSelect">
+          <span></span>
+          <select id="archiveFocusSelect" class="catalog-filter-select" aria-label="Archive project">
+            <option value="">All</option>
+            <option value="brand-systems">Brand Systems</option>
+            <option value="fnb-retail">F&B Retail</option>
+            <option value="packaging">Package Line</option>
+            <option value="campaign-content">Campaign</option>
+            <option value="digital-web">Digital Service</option>
+            <option value="illustration-character">Illustration</option>
+          </select>
+        </label>
+        <label class="catalog-filter-cell" for="archiveYearSelect">
+          <span></span>
+          <select id="archiveYearSelect" class="catalog-filter-select" aria-label="Archive year">
+            <option value="">All</option>
+            <option value="2026-2024">2026-2024</option>
+            <option value="2023-2021">2023-2021</option>
+            <option value="2020-2018">2020-2018</option>
+            <option value="older">~2017</option>
+          </select>
+        </label>
+        <button id="archiveResetFiltersBtn" class="catalog-filter-reset" type="button" aria-label="Reset archive filters">
+          Reset
+        </button>
+      </div>
+      <div class="flex items-center gap-6 view-toggle-actions">
+        <button id="toggleFilterBtn" class="view-toggle-text flex items-center gap-2 i18n-pending"
+          aria-label="Hide/Show Filter">
+          <img src="./assets/icons/Filter.png" alt="" class="w-4 h-4 object-contain">
+          <span id="filterToggleLabel">Hide Filter</span>
+        </button>
+        <div class="flex items-center gap-3">
+          <span id="desktopSortLabel" class="view-toggle-label i18n-pending">Sort</span>
+          <select id="desktopSortSelect" class="sort-select i18n-pending" aria-label="Sort">
+            <option id="desktopSortFeatured" value="featured">Random</option>
+            <option id="desktopSortLatest" value="latest">Latest</option>
+            <option id="desktopSortOldest" value="oldest">Oldest</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-4 ml-2 -mr-3">
+          <span id="desktopViewLabel" class="view-toggle-label">View</span>
+          <button id="viewToggle1" class="view-toggle-btn" data-view="1" aria-label="1개씩 보기">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            </svg>
+          </button>
+          <button id="viewToggle3" class="view-toggle-btn" data-view="3" aria-label="3개씩 보기">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <line x1="12" y1="3" x2="12" y2="21"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+            </svg>
+          </button>
+          <button id="viewToggle5" class="view-toggle-btn" data-view="5" aria-label="5개씩 보기">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+              <line x1="15" y1="3" x2="15" y2="21"></line>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="3" y1="15" x2="21" y2="15"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="categoryFocusBar" class="hidden fixed left-0 right-0 z-45 bg-white border-b border-black"></div>
+
+    <!-- Mobile View & Filter Bar -->
+    <div id="mobileTopBar"
+      class="lg:hidden sticky left-0 right-0 bg-white border-b border-neutral-200 flex items-center gap-3 px-4 py-2.5 z-[60] i18n-pending">
+      <span id="mobileResultCount" class="text-xs font-medium text-neutral-600"></span>
+      <div class="mobile-filter-readout-strip" aria-hidden="true">
+        <span id="mobileArchiveSortReadout">Sort: New</span>
+        <span id="mobileArchiveFocusReadout">Type: All</span>
+      </div>
+      <div class="mobile-catalog-filter-strip" aria-label="Archive filters">
+        <label class="catalog-filter-cell" for="mobileArchiveSortSelect">
+          <span>Sort</span>
+          <select id="mobileArchiveSortSelect" class="catalog-filter-select" aria-label="Archive sort">
+            <option value="latest">Sort: New</option>
+            <option value="featured">Sort: Featured</option>
+            <option value="oldest">Sort: Oldest</option>
+          </select>
+        </label>
+        <label class="catalog-filter-cell" for="mobileArchiveFocusSelect">
+          <span>Type</span>
+          <select id="mobileArchiveFocusSelect" class="catalog-filter-select" aria-label="Archive project">
+            <option value="">Type: All</option>
+            <option value="brand-systems">Type: Brand</option>
+            <option value="fnb-retail">Type: F&amp;B</option>
+            <option value="packaging">Type: Package</option>
+            <option value="campaign-content">Type: Campaign</option>
+            <option value="digital-web">Type: Digital</option>
+            <option value="illustration-character">Type: Illustration</option>
+          </select>
+        </label>
+        <label class="catalog-filter-cell" for="mobileArchiveYearSelect">
+          <span>Year:</span>
+          <select id="mobileArchiveYearSelect" class="catalog-filter-select" aria-label="Archive year">
+            <option value="">All</option>
+            <option value="2026-2024">2026-2024</option>
+            <option value="2023-2021">2023-2021</option>
+            <option value="2020-2018">2020-2018</option>
+            <option value="older">~2017</option>
+          </select>
+        </label>
+        <button id="mobileArchiveResetFiltersBtn" class="catalog-filter-reset" type="button" aria-label="Reset archive filters">
+          Reset
+        </button>
+      </div>
+      <div class="ml-auto flex items-center gap-3">
+        <button id="mobileFilterOpenBtn"
+          class="flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-[var(--accent-orange)] transition-colors i18n-pending"
+          aria-label="Open filter">
+          <img src="./assets/icons/Filter.png" alt="" class="w-4 h-4 object-contain">
+          <span id="mobileFilterLabel">Filter</span>
+        </button>
+        <select id="mobileSortSelect" class="sort-select i18n-pending" aria-label="Sort">
+          <option id="mobileSortFeatured" value="featured">Random</option>
+          <option id="mobileSortLatest" value="latest">Latest</option>
+          <option id="mobileSortOldest" value="oldest">Oldest</option>
+        </select>
+        <div class="flex items-center gap-3.5 ml-1">
+          <button id="mobileViewToggle1" class="view-toggle-btn" data-view="1" aria-label="Magazine View">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            </svg>
+          </button>
+          <button id="mobileViewToggle2" class="view-toggle-btn" data-view="2" aria-label="Grid View">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <line x1="12" y1="3" x2="12" y2="21"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var lang = 'en';
+        var viewMode = '3';
+        var filterVisible = null;
+        var sortMode = 'latest';
+        try {
+          lang = localStorage.getItem('site_lang') || 'en';
+          viewMode = localStorage.getItem('view_mode') || '3';
+          filterVisible = localStorage.getItem('filterVisible');
+          sortMode = localStorage.getItem('sort_mode') || 'latest';
+        } catch (e) {
+          // Ignore storage failures.
+        }
+        var dict = {
+          en: {
+            filter: 'Filter',
+            hideFilter: 'Hide Filter',
+            showFilter: 'Show Filter',
+            sort: 'Sort',
+            view: 'View',
+            random: 'Random',
+            magazine: 'Magazine',
+            thumbnail: 'Thumbnail'
+          },
+          ko: {
+            filter: '필터',
+            hideFilter: '필터 숨기기',
+            showFilter: '필터 보이기',
+            sort: '정렬',
+            view: '보기',
+            random: '무작위',
+            magazine: '매거진',
+            thumbnail: '썸네일'
+          }
+        };
+        var t = dict[lang] || dict.en;
+        var isVisible = filterVisible === null ? true : filterVisible !== 'false';
+        var filterToggleLabel = document.getElementById('filterToggleLabel');
+        if (filterToggleLabel) filterToggleLabel.textContent = isVisible ? t.hideFilter : t.showFilter;
+        var desktopSortLabel = document.getElementById('desktopSortLabel');
+        if (desktopSortLabel) desktopSortLabel.textContent = t.sort;
+        var desktopViewLabel = document.getElementById('desktopViewLabel');
+        if (desktopViewLabel) desktopViewLabel.textContent = t.view;
+        var mobileFilterLabel = document.getElementById('mobileFilterLabel');
+        if (mobileFilterLabel) mobileFilterLabel.textContent = t.filter;
+        var mobileFilterTitle = document.querySelector('#mobileFilterDrawer h3');
+        if (mobileFilterTitle) mobileFilterTitle.textContent = t.filter;
+        var desktopSortFeatured = document.getElementById('desktopSortFeatured');
+        if (desktopSortFeatured) desktopSortFeatured.textContent = t.random;
+        var mobileSortFeatured = document.getElementById('mobileSortFeatured');
+        if (mobileSortFeatured) mobileSortFeatured.textContent = t.random;
+        var desktopSortSelect = document.getElementById('desktopSortSelect');
+        if (desktopSortSelect) desktopSortSelect.value = sortMode;
+        var mobileSortSelect = document.getElementById('mobileSortSelect');
+        if (mobileSortSelect) {
+          mobileSortSelect.value = sortMode;
+          mobileSortSelect.classList.remove('i18n-pending');
+        }
+        var desktopSortLabel = document.getElementById('desktopSortLabel');
+        if (desktopSortLabel) desktopSortLabel.classList.remove('i18n-pending');
+        var desktopSortSelect = document.getElementById('desktopSortSelect');
+        if (desktopSortSelect) desktopSortSelect.classList.remove('i18n-pending');
+        var filterToggleBtn = document.getElementById('toggleFilterBtn');
+        if (filterToggleBtn) filterToggleBtn.classList.remove('i18n-pending');
+        var viewToggleBar = document.getElementById('viewToggleBar');
+        if (viewToggleBar) viewToggleBar.classList.remove('i18n-pending');
+        var mobileTopBar = document.getElementById('mobileTopBar');
+        if (mobileTopBar) mobileTopBar.classList.remove('i18n-pending');
+        var mobileFilterOpenBtn = document.getElementById('mobileFilterOpenBtn');
+        if (mobileFilterOpenBtn) mobileFilterOpenBtn.classList.remove('i18n-pending');
+        var desktopViewLabel = document.getElementById('desktopViewLabel');
+        if (desktopViewLabel) desktopViewLabel.classList.remove('i18n-pending');
+        ['viewToggle1', 'viewToggle3', 'viewToggle5'].forEach(function (id) {
+          var btn = document.getElementById(id);
+          if (btn) btn.classList.remove('i18n-pending');
+        });
+        ['mobileViewToggle1', 'mobileViewToggle2'].forEach(function (id) {
+          var btn = document.getElementById(id);
+          if (btn) {
+            btn.classList.remove('i18n-pending');
+            if (btn.dataset.view === (viewMode === '2' ? '2' : '1')) {
+              btn.classList.add('active');
+            }
+          }
+        });
+        var topBarLangLabel = document.getElementById('topBarLangLabel');
+        if (topBarLangLabel) topBarLangLabel.textContent = lang === 'ko' ? 'KO' : 'EN';
+      })();
+    </script>
+
+    <!-- Desktop Scroll Area (Restores the fixed UI feel) -->
+    <div id="desktopScroller" class="flex flex-col w-full overflow-y-auto">
+      <main class="flex flex-row filter-visible w-full">
+        <!-- Left Pane: Desktop Filter Menu -->
+        <aside id="desktopFilterMenu" class="pb-24 sticky top-0 h-[calc(100vh-158px)] overflow-y-auto filter-visible">
+          <div class="flex h-full flex-col">
+            <div class="w-[240px]">
+              <div id="filterMenuContent" class="flex-1 pb-24"></div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Pane: Main Content & Gallery -->
+        <section id="pane" class="flex-1 min-w-0" aria-live="polite">
+          <section class="dashboard-hero">
+            <div class="hero-band hero-band-top">
+              <div class="hero-band-content" style="justify-content: space-between; display: flex; width: 100%; align-items: center;">
+                <a href="#/" class="hero-brand-lockup" data-landing-action="home" aria-label="Design Persona home" style="text-decoration:none">
+                  <svg class="design-persona-mark" viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M12.35 0h9.15c4.15 0 7.2 3.12 7.72 7.48H25c-7.1 0-12.15-2.78-12.65-7.48Z"></path>
+                    <circle cx="25" cy="30.85" r="16.9" fill="none" stroke="currentColor" stroke-width="4.15"></circle>
+                  </svg>
+                  <span>Design Persona</span>
+                </a>
+                <button class="hero-hamburger-btn" type="button" aria-label="Open menu" data-landing-action="menu">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="hero-band hero-band-bottom">
+              <div class="hero-band-content" style="justify-content: space-between; display: flex; width: 100%; align-items: center;">
+                <button class="hero-down-btn" type="button" aria-label="Scroll down" data-landing-action="philosophy">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                  </svg>
+                </button>
+                <strong>Build your desire<span class="dot">.</span></strong>
+              </div>
+            </div>
+            <div class="dashboard-category-row">
+              <a href="#/category/brand-systems" class="dash-cell dash-category-cell" style="--category-accent:#ffb000; text-decoration:none" aria-label="Brand Identity & Systems">
+                <img class="dash-card-image" src="assets/projects/FP-BI/thumbnail.jpg" alt="" loading="lazy" decoding="async" />
+                <span class="dash-details" aria-label="View details">
+                  <span class="dash-details-number" aria-hidden="true">01</span>
+                  <svg class="dash-details-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="6" y1="18" x2="18" y2="6"></line>
+                    <polyline points="9 6 18 6 18 15"></polyline>
+                  </svg>
+                </span>
+                <div class="dash-card-copy">
+                  <div class="dash-title-row">
+                    <strong>Brand<br>Systems</strong>
+                  </div>
+                  <p>BX·BI, visual systems, brand guidelines, and identity refresh projects.</p>
+                </div>
+              </a>
+              <a href="#/category/fnb-retail" class="dash-cell dash-category-cell" style="--category-accent:#FF6A2A; text-decoration:none" aria-label="F&B / Retail Experience">
+                <img class="dash-card-image" src="assets/projects/FP-Deil/thumbnail.jpg" alt="" loading="lazy" decoding="async" />
+                <span class="dash-details" aria-label="View details">
+                  <span class="dash-details-number" aria-hidden="true">02</span>
+                  <svg class="dash-details-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="6" y1="18" x2="18" y2="6"></line>
+                    <polyline points="9 6 18 6 18 15"></polyline>
+                  </svg>
+                </span>
+                <div class="dash-card-copy">
+                  <div class="dash-title-row">
+                    <strong>F&B<br>Retail</strong>
+                  </div>
+                  <p>Food, cafe, retail, and offline brand touchpoints that connect products with customers.</p>
+                </div>
+              </a>
+              <a href="#/category/packaging" class="dash-cell dash-category-cell" style="--category-accent:#1559D1; text-decoration:none" aria-label="Packaging & Product Line">
+                <img class="dash-card-image" src="assets/projects/ROS/thumbnail.jpg" alt="" loading="lazy" decoding="async" />
+                <span class="dash-details" aria-label="View details">
+                  <span class="dash-details-number" aria-hidden="true">03</span>
+                  <svg class="dash-details-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="6" y1="18" x2="18" y2="6"></line>
+                    <polyline points="9 6 18 6 18 15"></polyline>
+                  </svg>
+                </span>
+                <div class="dash-card-copy">
+                  <div class="dash-title-row">
+                    <strong>Package<br>Line</strong>
+                  </div>
+                  <p>Package systems, product series, sales kits, and scalable visual assets.</p>
+                </div>
+              </a>
+              <a href="#/category/campaign-content" class="dash-cell dash-category-cell" style="--category-accent:#BCA3FF; text-decoration:none" aria-label="Campaign & Content Design">
+                <img class="dash-card-image" src="assets/projects/News-Letter/thumbnail.jpg" alt="" loading="lazy" decoding="async" />
+                <span class="dash-details" aria-label="View details">
+                  <span class="dash-details-number" aria-hidden="true">04</span>
+                  <svg class="dash-details-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="6" y1="18" x2="18" y2="6"></line>
+                    <polyline points="9 6 18 6 18 15"></polyline>
+                  </svg>
+                </span>
+                <div class="dash-card-copy">
+                  <div class="dash-title-row">
+                    <strong>Campaign<br>Content</strong>
+                  </div>
+                  <p>Key visuals, event branding, digital content, newsletters, and promotional assets.</p>
+                </div>
+              </a>
+              <a href="#/category/digital-web" class="dash-cell dash-category-cell" style="--category-accent:#111111; text-decoration:none" aria-label="Digital / Web / Service">
+                <img class="dash-card-image" src="assets/projects/GM-Portfolio/thumbnail.jpg" alt="" loading="lazy" decoding="async" />
+                <span class="dash-details" aria-label="View details">
+                  <span class="dash-details-number" aria-hidden="true">05</span>
+                  <svg class="dash-details-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="6" y1="18" x2="18" y2="6"></line>
+                    <polyline points="9 6 18 6 18 15"></polyline>
+                  </svg>
+                </span>
+                <div class="dash-card-copy">
+                  <div class="dash-title-row">
+                    <strong>Digital<br>Service</strong>
+                  </div>
+                  <p>Websites, e-catalogues, product concepts, and digital service interfaces.</p>
+                </div>
+              </a>
+              <a href="#/category/illustration-character" class="dash-cell dash-category-cell" style="--category-accent:#FFE85B; text-decoration:none" aria-label="Illustration & Character">
+                <img class="dash-card-image" src="assets/projects/Gullyjumper/thumbnail.jpg" alt="" loading="lazy" decoding="async" />
+                <span class="dash-details" aria-label="View details">
+                  <span class="dash-details-number" aria-hidden="true">06</span>
+                  <svg class="dash-details-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="6" y1="18" x2="18" y2="6"></line>
+                    <polyline points="9 6 18 6 18 15"></polyline>
+                  </svg>
+                </span>
+                <div class="dash-card-copy">
+                  <div class="dash-title-row">
+                    <strong>Illustration<br>Character</strong>
+                  </div>
+                  <p>Character systems, illustration assets, brand films, and goods-oriented visuals.</p>
+                </div>
+              </a>
+            </div>
+          </section>
+          <section id="landingFeaturedProject" class="landing-featured-project snap-page" aria-label="Chat Book">
+            <div class="landing-featured-media" aria-label="Chat Book preview">
+              <img class="landing-featured-fallback-image" src="assets/projects/ChatLog/thumbnail.jpg" alt="Chat Book" loading="lazy" decoding="async" />
+              <div class="landing-featured-chatbook-mockup" data-chatbook-slide="0" aria-label="Chat Book preview">
+                <div class="chatbook-screen-window">
+                  <div class="chatbook-screen-track">
+                    <img src="assets/projects/ChatBook/desktop/1.webp" alt="" loading="lazy" decoding="async" />
+                    <img src="assets/projects/ChatBook/desktop/2.webp" alt="" loading="lazy" decoding="async" />
+                    <img src="assets/projects/ChatBook/desktop/3.webp" alt="" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+                <img class="chatbook-device-frame" src="assets/projects/ChatBook/desktop/0.webp" alt="" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <div class="landing-featured-copy">
+              <div class="landing-featured-main">
+                <div class="landing-featured-tags" aria-label="Project categories"><span>Coming Soon</span></div>
+                <h2 class="landing-featured-logo-title">
+                  <img src="assets/logo/ChatBook_Symbol.png" alt="Chat Book" loading="lazy" decoding="async" />
+                </h2>
+                <p>Read yourself through everyday conversations, one page at a time.</p>
+                <div class="landing-featured-downloads" aria-label="Project details">
+                  <a href="#/chatlog">View details</a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="philosophy" class="philosophy-stage" aria-label="Brand philosophy">
+            <div class="philosophy-pin">
+              <div class="philosophy-static-slogan">
+                Your desire,<br>
+                built through<br>
+                <span class="highlight">Design Persona.</span>
+              </div>
+              <ol class="philosophy-list">
+                <li><span>01</span><p>Become a Brand Architect.</p></li>
+                <li><span>02</span><p>Use the Visual Strategy.</p></li>
+                <li><span>03</span><p>Follow the Experience Builder.</p></li>
+                <li><span>04</span><p>Enjoy the Creative Connection.</p></li>
+              </ol>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <!-- Desktop Footer -->
+      <footer class="desktop-footer site-footer hidden lg:block w-full mt-auto">
+        <div class="site-footer-inner">
+          <div class="site-footer-brand">
+            <strong class="site-footer-brand-lockup"><svg class="design-persona-mark" viewBox="0 0 50 50" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.35 0h9.15c4.15 0 7.2 3.12 7.72 7.48H25c-7.1 0-12.15-2.78-12.65-7.48Z"></path><circle cx="25" cy="30.85" r="16.9" fill="none" stroke="currentColor" stroke-width="4.15"></circle></svg><span>Design Persona</span></strong>
+          </div>
+          <nav class="site-footer-column" aria-label="Explore">
+            <strong>Explore</strong>
+            <a href="#/">Main</a>
+            <a href="#/about">About</a>
+            <a href="#/archive">All Projects</a>
+          </nav>
+          <nav class="site-footer-column site-footer-projects" aria-label="Projects">
+            <strong>Project</strong>
+            <div class="site-footer-project-grid">
+              <div>
+                <a href="#/category/brand-systems">Brand Systems</a>
+                <a href="#/category/fnb-retail">F&amp;B Retail</a>
+                <a href="#/category/packaging">Package Line</a>
+              </div>
+              <div>
+                <a href="#/category/campaign-content">Campaign Content</a>
+                <a href="#/category/digital-web">Digital Service</a>
+                <a href="#/category/illustration-character">Illustration Character</a>
+              </div>
+            </div>
+          </nav>
+          <nav class="site-footer-column" aria-label="Connect">
+            <strong>Connect</strong>
+            <a href="mailto:designpersona.kr@gmail.com">Email</a>
+            <span>Seoul, Korea</span>
+          </nav>
+        </div>
+        <div class="site-footer-bottom">
+          <span id="desktopCopyright"></span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Mobile Filter Drawer (Only visible on mobile) -->
+  <div id="mobileFilterDrawer" class="lg:hidden fixed inset-0 z-[40] bg-black/40" role="dialog" aria-modal="true">
+    <div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white px-5 pt-4 pb-2 overflow-y-auto drawer shadow-xl"
+      style="padding-top: 16px;">
+      <div class="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200">
+        <h3 class="text-[16px] font-semibold text-neutral-900">Filter</h3>
+        <button id="mobileFilterClose"
+          class="inline-flex items-center justify-center w-10 h-10 text-black hover:bg-neutral-100 rounded-full transition-colors leading-none"
+          aria-label="Close filter">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+      <!-- Filter content dynamically populated by JS -->
+      <div id="mobileFilterContent" class="space-y-6"></div>
+    </div>
+  </div>
+
+  <!-- Mobile Footer (Remains outside) -->
+  <footer class="mobile-footer site-footer lg:hidden w-full bg-neutral-900 px-5 pt-24 border-t border-neutral-800 pb-safe"
+    style="padding-bottom: calc(env(safe-area-inset-bottom) + 80px); margin-bottom: 0;">
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <strong class="site-footer-brand-lockup"><svg class="design-persona-mark" viewBox="0 0 50 50" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.35 0h9.15c4.15 0 7.2 3.12 7.72 7.48H25c-7.1 0-12.15-2.78-12.65-7.48Z"></path><circle cx="25" cy="30.85" r="16.9" fill="none" stroke="currentColor" stroke-width="4.15"></circle></svg><span>Design Persona</span></strong>
+      </div>
+      <nav class="site-footer-column" aria-label="Explore">
+        <strong>Explore</strong>
+        <a href="#/">Main</a>
+        <a href="#/about">About</a>
+        <a href="#/archive">All Projects</a>
+      </nav>
+      <nav class="site-footer-column site-footer-projects" aria-label="Projects">
+        <strong>Project</strong>
+        <div class="site-footer-project-grid">
+          <div>
+            <a href="#/category/brand-systems">Brand Systems</a>
+            <a href="#/category/fnb-retail">F&amp;B Retail</a>
+            <a href="#/category/packaging">Package Line</a>
+          </div>
+          <div>
+            <a href="#/category/campaign-content">Campaign Content</a>
+            <a href="#/category/digital-web">Digital Service</a>
+            <a href="#/category/illustration-character">Illustration Character</a>
+          </div>
+        </div>
+      </nav>
+      <nav class="site-footer-column" aria-label="Connect">
+        <strong>Connect</strong>
+        <a href="mailto:designpersona.kr@gmail.com">Email</a>
+        <span>Seoul, Korea</span>
+      </nav>
+    </div>
+    <div class="site-footer-bottom">
+      <span id="mobileCopyright">Copyright © Min Gyuri 2013-2026. All Rights Reserved.<span class="site-footer-version">Site v1.0.3</span></span>
+    </div>
+  </footer>
+
+  <!-- Desktop Menu Drawer -->
+  <div id="desktopMenu" class="fixed inset-0 hidden">
+    <button id="desktopMenuBackdrop" class="absolute inset-0 bg-black/40" aria-label="Close menu"></button>
+    <div id="desktopDrawerPanel"
+      class="absolute right-0 top-0 h-full w-[460px] max-w-[90vw] bg-white overflow-y-auto drawer shadow-xl flex">
+      <!-- Left vertical sidebar -->
+      <div class="drawer-sidebar">
+        <a href="#/about" id="desktopAboutLink" class="drawer-sidebar-about" style="text-decoration:none">ABOUT ME</a>
+        <span class="drawer-sidebar-logo">Design Persona</span>
+        <span class="drawer-sidebar-brand">© Gyuri.Min 2013-2026.</span>
+      </div>
+      <!-- Main content area -->
+      <div class="drawer-main">
+        <div class="flex items-center justify-between px-2 pt-6 pb-1 gap-2 mb-6">
+          <div class="drawer-social-links" aria-label="Social links">
+            <a href="mailto:designpersona.kr@gmail.com" aria-label="Email" class="drawer-social-email">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 7l7 6 7-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/gyuri-min" aria-label="LinkedIn">
+              <img src="assets/icons/LinkedIn.png" alt="" aria-hidden="true" />
+            </a>
+            <a href="https://www.behance.net/gyuri_min" aria-label="Behance">
+              <img src="assets/icons/Behance.png" alt="" aria-hidden="true" />
+            </a>
+          </div>
+          <button id="desktopMenuClose"
+            class="inline-flex items-center justify-center w-10 h-10 text-black hover:bg-neutral-100 rounded-full transition-colors leading-none"
+            aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Desktop Menu Navigation -->
+        <nav id="desktopProjectListNav" class="space-y-1"></nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Search Modal -->
+  <div id="mobileSearchModal" class="fixed inset-0 hidden z-[80] bg-black/40">
+    <div class="flex items-center justify-center h-full px-4">
+      <div id="mobileSearchBox" class="w-full max-w-sm bg-white px-4 pt-4 pb-5 shadow-sm">
+        <div class="flex items-center gap-2">
+          <input type="text" id="mobileSearchInput" placeholder="Search..."
+            class="w-full text-[15px] border-b border-neutral-900 bg-transparent focus:outline-none" />
+          <button id="mobileSearchClose"
+            class="inline-flex items-center justify-center w-10 h-10 text-black hover:bg-neutral-100 rounded-full transition-colors"
+            aria-label="Close search">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobileMenu" class="fixed inset-0 hidden">
+    <button id="menuBackdrop" class="absolute inset-0 bg-black/40" aria-label="Close menu"></button>
+    <div id="drawerPanel"
+      class="absolute right-0 top-0 h-full w-[60%] max-w-sm bg-white px-5 pt-3 pb-2 overflow-y-auto drawer shadow-xl">
+      <div class="flex items-center justify-between px-2 pt-1 pb-1 gap-2">
+        <a href="#/about" id="mobileAboutLink" class="text-[20px] font-medium text-neutral-900 leading-none"
+          style="text-decoration:none">
+          ABOUT ME
+        </a>
+        <button id="menuClose"
+          class="inline-flex items-center justify-center w-12 h-12 text-black hover:bg-neutral-100 rounded-full transition-colors leading-none -mr-3"
+          aria-label="Close">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Navigation -->
+      <div class="mt-4">
+        <nav id="mobileProjectList"></nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Blocker Overlay -->
+  <div id="mobileBlocker" class="fixed inset-0 z-[9999] bg-[#111] text-white flex-col items-center justify-center text-center px-6 hidden">
+    <h2 class="text-xl font-bold mb-4 tracking-tight font-outfit uppercase" style="letter-spacing: 0.1em; color: var(--accent-orange);">Desktop Optimized</h2>
+    <p class="text-[14px] leading-[1.6] text-neutral-400 font-medium">
+      본 포트폴리오는 고해상도 작업물과 인터랙션을 포함하고 있어,<br>
+      데스크톱 PC 환경에 최적화되어 있습니다.<br><br>
+      더 나은 경험을 위해 모바일 기기 대신<br>PC(1024px 이상)에서 접속해 주세요.
+    </p>
+  </div>
+  <style>
+    @media (max-width: 1023px) {
+      #mobileBlocker {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <!-- Scroll To Top Button -->
+  <div id="personaGuide" class="persona-guide" aria-live="polite">
+    <div id="personaGuidePanel" class="persona-guide-panel hidden" role="dialog" aria-modal="false"
+      aria-labelledby="personaGuideTitle">
+      <div class="persona-guide-head">
+        <div>
+          <p id="personaGuideTitle">Persona Guide</p>
+          <span>No data is saved. Your email app will open with a draft.</span>
+        </div>
+        <button id="personaGuideClose" type="button" aria-label="Close guide">×</button>
+      </div>
+
+      <div class="persona-guide-group" data-guide-group="focus">
+        <p>What do you need?</p>
+        <div>
+          <button type="button" data-guide-value="Brand identity">Brand</button>
+          <button type="button" data-guide-value="Package line">Package</button>
+          <button type="button" data-guide-value="Web / service">Web</button>
+          <button type="button" data-guide-value="Campaign content">Campaign</button>
+        </div>
+      </div>
+
+      <div class="persona-guide-group" data-guide-group="timeline">
+        <p>Timeline</p>
+        <div>
+          <button type="button" data-guide-value="Soon">Soon</button>
+          <button type="button" data-guide-value="1-2 months">1-2 months</button>
+          <button type="button" data-guide-value="Flexible">Flexible</button>
+        </div>
+      </div>
+
+      <div class="persona-guide-group" data-guide-group="scope">
+        <p>Scope</p>
+        <div>
+          <button type="button" data-guide-value="Small start">Small start</button>
+          <button type="button" data-guide-value="One project">One project</button>
+          <button type="button" data-guide-value="Discuss first">Discuss first</button>
+        </div>
+      </div>
+
+      <div class="persona-guide-note" id="personaGuideNote"></div>
+      <a id="personaGuideEmail" class="persona-guide-email" href="mailto:designpersona.kr@gmail.com">
+        Email this note
+      </a>
+    </div>
+
+    <button id="personaGuideBtn" class="persona-guide-btn" type="button" aria-label="Open Persona Guide"
+      aria-expanded="false" aria-controls="personaGuidePanel">
+      <svg class="design-persona-mark" viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M12.35 0h9.15c4.15 0 7.2 3.12 7.72 7.48H25c-7.1 0-12.15-2.78-12.65-7.48Z"></path>
+        <circle cx="25" cy="30.85" r="16.9" fill="none" stroke="currentColor" stroke-width="4.15"></circle>
+      </svg>
+    </button>
+  </div>
+
+  <button id="scrollTopBtn" type="button" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 14l6-6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <script src="js/data.js?v=20260706-gullyjumper-1"></script>
+  <script src="js/main.js?v=20260523-feature-link-1"></script>
+  <script id="mobileChromeGuardScript">
+      (function () {
+        var syncTimer = null;
+
+        function primaryScrollY() {
+          return Math.max(
+            window.scrollY || 0,
+            document.documentElement.scrollTop || 0,
+            document.body.scrollTop || 0
+          );
+        }
+
+        function setImportant(el, prop, value) {
+          if (!el) return;
+          el.style.setProperty(prop, value, 'important');
+        }
+
+        function syncMobileChrome() {
+          if (window.innerWidth >= 1024) return;
+
+          document.body.classList.add('mobile-mode');
+          var y = primaryScrollY();
+          var isLanding = document.body.classList.contains('landing-page-active');
+          var isDetail = document.body.classList.contains('detail-page-active');
+          var isArchive = document.body.classList.contains('archive-page-active');
+          var header = document.getElementById('mainHeader');
+          var topButton = document.getElementById('scrollTopBtn');
+          var guidePanel = document.getElementById('personaGuidePanel');
+          var guideOpen = Boolean(guidePanel && !guidePanel.classList.contains('hidden'));
+          var showHeader = (isDetail || isArchive) ? y <= 50 : (!isLanding || y > 80);
+          var showTop = y > (isLanding ? 80 : 300) || guideOpen;
+
+          document.body.classList.toggle('landing-header-revealed', isLanding && showHeader);
+          if (isLanding) document.body.classList.remove('header-collapsed');
+
+          setImportant(header, 'transform', showHeader ? 'translate3d(0, 0, 0)' : 'translate3d(0, -100%, 0)');
+          setImportant(header, 'opacity', showHeader ? '1' : '0');
+          setImportant(header, 'visibility', showHeader ? 'visible' : 'hidden');
+          setImportant(header, 'pointer-events', showHeader ? 'auto' : 'none');
+
+          if (topButton) {
+            topButton.classList.toggle('visible', showTop);
+            setImportant(topButton, 'display', 'flex');
+            setImportant(topButton, 'opacity', showTop ? '1' : '0');
+            setImportant(topButton, 'visibility', showTop ? 'visible' : 'hidden');
+            setImportant(topButton, 'pointer-events', showTop ? 'auto' : 'none');
+          }
+        }
+
+        function scheduleSync() {
+          if (syncTimer) return;
+          syncTimer = requestAnimationFrame(function () {
+            syncTimer = null;
+            syncMobileChrome();
+          });
+        }
+
+        window.addEventListener('scroll', scheduleSync, { passive: true });
+        document.addEventListener('scroll', scheduleSync, { passive: true, capture: true });
+        window.addEventListener('resize', scheduleSync);
+        window.addEventListener('hashchange', function () {
+          setTimeout(syncMobileChrome, 80);
+        });
+        document.addEventListener('DOMContentLoaded', syncMobileChrome);
+        window.addEventListener('load', syncMobileChrome);
+        setInterval(syncMobileChrome, 250);
+      })();
+  </script>
+
+</body>
+
+</html>
