@@ -29,7 +29,16 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 
 `https://designpersona.kr/portfolio.html?utm_source=company-a&utm_medium=job_application&utm_campaign=2026_hiring&utm_content=brand-designer#/archive`
 
-UTM 자체가 포트폴리오를 여는 열쇠는 아닙니다. `portfolio.html` 경로가 화면을 나누고, UTM은 방문 출처를 기록합니다.
+`portfolio.html`은 아래 네 값이 모두 있을 때만 열립니다.
+
+- `utm_source`: 회사명
+- `utm_medium`: 반드시 `job_application`
+- `utm_campaign`: 채용 캠페인명
+- `utm_content`: 직무 또는 공고 식별자
+
+하나라도 없거나 `utm_medium` 값이 다르면 공사중 페이지로 이동합니다. 이 UTM 검사는 실수로 공유한 일반 링크를 가리는 용도이며 비밀번호 수준의 보안은 아닙니다.
+
+공사중 페이지로 돌아간 접근은 Clarity에서 `portfolio_access=denied`, 정상 지원 링크는 `portfolio_access=granted`로 구분됩니다.
 
 ## 채널별 링크 예시
 
@@ -56,6 +65,7 @@ UTM 자체가 포트폴리오를 여는 열쇠는 아닙니다. `portfolio.html`
 
 ## 해석할 때 주의할 점
 
+- 회사마다 `utm_source`, 공고마다 `utm_content`를 고유하게 만들어야 기업·공고별 방문을 구분할 수 있습니다.
 - UTM이나 `ref`가 없는 복사·붙여넣기 링크, 메신저·앱의 개인정보 보호 기능, 광고 차단기는 유입 정보를 없앨 수 있어 `direct`로 남습니다.
 - 같은 원본 링크를 여러 곳에 복사하면 출처를 나눌 수 없습니다. 배치 위치마다 `utm_content`를 다르게 만드세요.
 - Clarity의 `email_inquiry_click`은 메일 앱을 열려는 클릭입니다. 실제 발송 완료를 뜻하지는 않습니다.

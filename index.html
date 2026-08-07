@@ -306,6 +306,7 @@
       window.clarity("set", "entry_campaign", safe(campaign));
       window.clarity("set", "entry_content", safe(content));
       window.clarity("set", "entry_route", safe(hashRoute));
+      window.clarity("set", "portfolio_access", params.get("access") === "denied" ? "denied" : "construction");
       window.clarity("event", "construction_view");
 
       [5, 15, 30].forEach(function (seconds) {
