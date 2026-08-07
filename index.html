@@ -7,6 +7,55 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <title>Design Persona — Rebuilding</title>
+  <script>
+    (function () {
+      var route = (window.location.hash || '#/').replace(/^#\/?/, '').toLowerCase();
+      if (!route) return;
+
+      var knownRoutes = [
+        'about',
+        'archive',
+        'chatlog',
+        'gm-portfolio',
+        'farmsplan-deli-cafe',
+        'openfarm',
+        '27-red-brick',
+        'farmsplan-swine-feed',
+        'aid-rebranding',
+        'cafe-terrabite',
+        'record-of-sea-salt',
+        'farmsplan-cattle-feed',
+        'farmsplan-chicken',
+        'fp-brand-film',
+        'fp-brand-identity',
+        'gullyjumper-universe',
+        'deep-dive-campaign',
+        'fresh-chungnam',
+        'siso-fair-2020',
+        'news-letter',
+        'chabssal-tteogkki',
+        'eye-makeup',
+        'portfolio-access-denied',
+        'portfolio-link-invalid',
+        'portfolio-link-inactive',
+        'portfolio-link-error'
+      ];
+      var categoryRoutes = [
+        'brand-systems',
+        'fnb-retail',
+        'packaging',
+        'campaign-content',
+        'digital-web',
+        'illustration-character'
+      ];
+      var isKnownCategory = route.indexOf('category/') === 0 && categoryRoutes.indexOf(route.slice(9)) !== -1;
+
+      if (knownRoutes.indexOf(route) === -1 && !isKnownCategory) {
+        document.documentElement.style.visibility = 'hidden';
+        window.location.replace('/404.html');
+      }
+    })();
+  </script>
   <meta name="description" content="Design Persona is being rebuilt. For project and collaboration inquiries, please contact by email." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Design Persona — Rebuilding" />

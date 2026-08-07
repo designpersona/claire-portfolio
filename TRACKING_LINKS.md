@@ -24,7 +24,7 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 
 첫 등록 링크:
 
-`https://designpersona.kr/go/#smd601hga` — Kinkos / 사람인 / 중견·중소 / Design / 2026-08-07 / 연간 01 / 당일 1
+`https://designpersona.kr/go/#smd601` — Kinkos / 사람인 / 중견·중소 / Design / 2026-08-07 / 연간 01 / 당일 1
 
 이동한 `portfolio.html`은 아래 다섯 값이 모두 있을 때만 열립니다.
 

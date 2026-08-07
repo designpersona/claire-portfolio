@@ -66,18 +66,6 @@ function requireChoice(label, value, choices) {
   return normalized;
 }
 
-function dayCode(day) {
-  if (day <= 26) return String.fromCharCode(96 + day);
-  return String(day - 26);
-}
-
-function sequenceCode(sequence) {
-  if (sequence < 1 || sequence > 26) {
-    throw new Error('하루 지원 순번은 1부터 26까지 지원합니다.');
-  }
-  return String.fromCharCode(96 + sequence);
-}
-
 const args = parseArgs(process.argv.slice(2));
 const required = ['company', 'platform', 'company-type', 'role', 'date'];
 const missing = required.filter((key) => !args[key]);
@@ -118,15 +106,11 @@ const dailySequence = entries
 if (annualSequence > 99) throw new Error('연간 지원 순번이 99를 넘었습니다. 규칙 확장이 필요합니다.');
 
 const numericBlock = `${year % 10}${String(annualSequence).padStart(2, '0')}`;
-const monthLetter = String.fromCharCode(96 + month);
 const code = [
   platformCodes[platform],
   companyTypeCodes[companyType],
   roleCodes[role],
-  numericBlock,
-  monthLetter,
-  dayCode(day),
-  sequenceCode(dailySequence)
+  numericBlock
 ].join('');
 
 if (registry.links && registry.links[code]) throw new Error(`이미 존재하는 코드입니다: ${code}`);

@@ -32,20 +32,21 @@
       var queryCode = new URLSearchParams(window.location.search).get('k') || '';
       var code = (hashCode || queryCode).trim().toLowerCase();
 
-      var deny = function (reason) {
-        var denied = new URLSearchParams({
-          access: 'denied',
-          invite_id: code || 'missing',
-          utm_source: 'short_link',
-          utm_medium: 'job_application',
-          utm_campaign: 'portfolio_link_denied',
-          utm_content: reason
-        });
-        window.location.replace('/?' + denied.toString() + '#/portfolio-link-' + reason);
+      var showNotFound = function () {
+        var render = function () {
+          document.title = '404 — Link not found';
+          var message = document.getElementById('statusMessage');
+          if (message) message.textContent = '404 — Link not found.';
+        };
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', render, { once: true });
+        } else {
+          render();
+        }
       };
 
       if (!/^[a-z0-9]{6,24}$/.test(code)) {
-        deny('invalid');
+        showNotFound();
         return;
       }
 
@@ -57,7 +58,7 @@
         .then(function (registry) {
           var entry = registry && registry.links && registry.links[code];
           if (!entry || entry.active !== true) {
-            deny('inactive');
+            showNotFound();
             return;
           }
 
@@ -77,12 +78,12 @@
           window.location.replace('/portfolio.html?' + target.toString() + '#/archive');
         })
         .catch(function () {
-          deny('error');
+          showNotFound();
         });
     })();
   </script>
 </head>
 <body>
-  <p>Opening portfolio…</p>
+  <p id="statusMessage">Opening portfolio…</p>
 </body>
 </html>
