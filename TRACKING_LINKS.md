@@ -16,29 +16,27 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 
 ## 채용 지원용 전체 포트폴리오
 
-기존에 전달한 `designpersona.kr/#/...` 주소는 공사중 페이지를 표시합니다. 신규 지원처에는 아래 형식의 전용 주소를 전달합니다.
+기존에 전달한 `designpersona.kr/#/...` 주소는 공사중 페이지를 표시합니다. 신규 지원처에는 지원 건마다 등록한 짧은 주소를 전달합니다.
 
-`https://designpersona.kr/portfolio.html?utm_source=company_name&utm_medium=job_application&utm_campaign=2026_hiring&utm_content=position_name#/archive`
+`https://designpersona.kr/go/?k=고유코드`
 
-- `portfolio.html`: 전체 포트폴리오를 보여주는 화면
-- `utm_source`: 지원 회사 이름
-- `utm_content`: 직무 또는 공고 식별자
-- `#/archive`: 전체 프로젝트 목록으로 바로 이동
+짧은 주소는 `go/links.json`에서 회사·직무·캠페인을 찾아 전체 포트폴리오 UTM 주소로 이동합니다. 지원 건이 늘어나도 페이지는 추가하지 않고 등록 목록에 항목 하나만 더합니다.
 
-예시:
+첫 등록 링크:
 
-`https://designpersona.kr/portfolio.html?utm_source=company-a&utm_medium=job_application&utm_campaign=2026_hiring&utm_content=brand-designer#/archive`
+`https://designpersona.kr/go/?k=6fe518` — Kinkos / Design
 
-`portfolio.html`은 아래 네 값이 모두 있을 때만 열립니다.
+이동한 `portfolio.html`은 아래 다섯 값이 모두 있을 때만 열립니다.
 
 - `utm_source`: 회사명
 - `utm_medium`: 반드시 `job_application`
 - `utm_campaign`: 채용 캠페인명
 - `utm_content`: 직무 또는 공고 식별자
+- `invite_id`: 지원 건별 고유 코드
 
 하나라도 없거나 `utm_medium` 값이 다르면 공사중 페이지로 이동합니다. 이 UTM 검사는 실수로 공유한 일반 링크를 가리는 용도이며 비밀번호 수준의 보안은 아닙니다.
 
-공사중 페이지로 돌아간 접근은 Clarity에서 `portfolio_access=denied`, 정상 지원 링크는 `portfolio_access=granted`로 구분됩니다.
+공사중 페이지로 돌아간 접근은 Clarity에서 `portfolio_access=denied`, 정상 지원 링크는 `portfolio_access=granted`로 구분됩니다. `invite_id`로 같은 회사의 여러 지원 건도 나눌 수 있습니다.
 
 ## 채널별 링크 예시
 

@@ -20,11 +20,13 @@
       var medium = (params.get('utm_medium') || '').trim();
       var campaign = (params.get('utm_campaign') || '').trim();
       var content = (params.get('utm_content') || '').trim();
+      var inviteId = (params.get('invite_id') || '').trim();
       var isApplicationLink = Boolean(
         source &&
         medium === 'job_application' &&
         campaign &&
-        content
+        content &&
+        inviteId
       );
 
       if (!isApplicationLink) {
@@ -74,6 +76,7 @@
       window.clarity('set', 'entry_medium', safe(medium));
       window.clarity('set', 'entry_campaign', safe(campaign));
       window.clarity('set', 'entry_content', safe(content));
+      window.clarity('set', 'invite_id', safe(params.get('invite_id')));
       window.clarity('set', 'entry_route', safe((window.location.hash || '#/archive').replace(/^#\/?/, '') || 'archive'));
       window.clarity('set', 'portfolio_access', 'granted');
       window.clarity('event', 'application_portfolio_view');

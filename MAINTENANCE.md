@@ -25,7 +25,8 @@
 ## Split access
 
 - `index.html`과 기존 `#/...` 링크: 공사중 페이지
-- 필수 채용 UTM 네 개가 붙은 `portfolio.html?...#/archive`: 신규 채용 지원용 전체 포트폴리오
-- UTM이 없거나 형식이 잘못된 `portfolio.html`: 공사중 페이지로 이동
+- `go/?k=고유코드`: `go/links.json`에 등록된 활성 지원 링크만 전체 포트폴리오 UTM 주소로 이동
+- 필수 채용 UTM 네 개와 `invite_id`가 붙은 `portfolio.html?...#/archive`: 신규 채용 지원용 전체 포트폴리오
+- UTM이나 `invite_id`가 없거나 형식이 잘못된 `portfolio.html`: 공사중 페이지로 이동
 
 UTM 검사는 일반 링크를 가리고 유입을 식별하기 위한 장치입니다. `portfolio.html`은 검색 노출을 막았지만 비밀번호로 보호되는 파일은 아닙니다.

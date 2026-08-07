@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Design Persona — Opening portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #f4efe7;
+      color: #111;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+  </style>
+  <script>
+    (function () {
+      var code = (new URLSearchParams(window.location.search).get('k') || '').trim().toLowerCase();
+
+      var deny = function (reason) {
+        var denied = new URLSearchParams({
+          access: 'denied',
+          invite_id: code || 'missing',
+          utm_source: 'short_link',
+          utm_medium: 'job_application',
+          utm_campaign: 'portfolio_link_denied',
+          utm_content: reason
+        });
+        window.location.replace('/?' + denied.toString() + '#/portfolio-link-' + reason);
+      };
+
+      if (!/^[a-z0-9]{6,24}$/.test(code)) {
+        deny('invalid');
+        return;
+      }
+
+      fetch('./links.json?t=' + Date.now(), { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('registry_unavailable');
+          return response.json();
+        })
+        .then(function (registry) {
+          var entry = registry && registry.links && registry.links[code];
+          if (!entry || entry.active !== true) {
+            deny('inactive');
+            return;
+          }
+
+          var target = new URLSearchParams({
+            utm_source: entry.company,
+            utm_medium: 'job_application',
+            utm_campaign: entry.campaign,
+            utm_content: entry.role,
+            invite_id: code
+          });
+          window.location.replace('/portfolio.html?' + target.toString() + '#/archive');
+        })
+        .catch(function () {
+          deny('error');
+        });
+    })();
+  </script>
+</head>
+<body>
+  <p>Opening portfolio…</p>
+</body>
+</html>
