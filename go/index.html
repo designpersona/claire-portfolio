@@ -62,20 +62,7 @@
             return;
           }
 
-          var target = new URLSearchParams({
-            utm_source: entry.platform,
-            utm_medium: 'job_application',
-            utm_campaign: entry.campaign,
-            utm_content: entry.company + '_' + entry.role,
-            application_company: entry.company,
-            application_platform: entry.platform,
-            company_type: entry.company_type,
-            application_role: entry.role,
-            application_date: entry.applied_at,
-            application_sequence: String(entry.annual_sequence),
-            invite_id: code
-          });
-          window.location.replace('/portfolio.html?' + target.toString() + '#/archive');
+          window.location.replace('/portfolio.html?k=' + encodeURIComponent(code) + '#/archive');
         })
         .catch(function () {
           showNotFound();

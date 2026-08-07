@@ -16,27 +16,50 @@
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
-      var source = (params.get('utm_source') || '').trim();
-      var medium = (params.get('utm_medium') || '').trim();
-      var campaign = (params.get('utm_campaign') || '').trim();
-      var content = (params.get('utm_content') || '').trim();
-      var inviteId = (params.get('invite_id') || '').trim();
-      var isApplicationLink = Boolean(
-        source &&
-        medium === 'job_application' &&
-        campaign &&
-        content &&
-        inviteId
-      );
+      var code = (params.get('k') || params.get('invite_id') || '').trim().toLowerCase();
+      window.__portfolioContextPromise = Promise.resolve(null);
 
-      if (!isApplicationLink) {
-        params.set('access', 'denied');
-        var query = params.toString();
-        window.location.replace('/' + (query ? '?' + query : '') + '#/portfolio-access-denied');
+      if (!code) {
+        window.location.replace('/#/portfolio-access-denied');
         return;
       }
 
-      document.documentElement.setAttribute('data-portfolio-access', 'granted');
+      if (!/^[a-z0-9]{6,24}$/.test(code)) {
+        window.location.replace('/404.html');
+        return;
+      }
+
+      window.__portfolioContextPromise = fetch('/go/links.json?t=' + Date.now(), { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('registry_unavailable');
+          return response.json();
+        })
+        .then(function (registry) {
+          var entry = registry && registry.links && registry.links[code];
+          if (!entry || entry.active !== true) throw new Error('link_not_found');
+
+          var context = {
+            source: entry.platform,
+            medium: 'job_application',
+            campaign: entry.campaign,
+            content: entry.company + '_' + entry.role,
+            inviteId: code,
+            company: entry.company,
+            platform: entry.platform,
+            companyType: entry.company_type,
+            role: entry.role,
+            date: entry.applied_at,
+            sequence: String(entry.annual_sequence)
+          };
+
+          document.documentElement.setAttribute('data-portfolio-access', 'granted');
+          window.history.replaceState(null, '', '/portfolio.html?k=' + encodeURIComponent(code) + (window.location.hash || '#/archive'));
+          return context;
+        })
+        .catch(function () {
+          window.location.replace('/404.html');
+          return null;
+        });
     })();
   </script>
   <link rel="icon" href="./assets/icons/favicon2.png" sizes="any" />
@@ -54,42 +77,33 @@
   </script>
   <script>
     (function () {
-      var params = new URLSearchParams(window.location.search);
-      var referrerHost = 'direct';
-
-      try {
-        if (document.referrer) referrerHost = new URL(document.referrer).hostname || 'referral';
-      } catch (error) {
-        referrerHost = 'referral';
-      }
-
       var safe = function (value) {
         return String(value || 'unknown').slice(0, 120);
       };
-      var source = params.get('utm_source') || params.get('ref') || referrerHost;
-      var medium = params.get('utm_medium') || (source === 'direct' ? 'none' : 'referral');
-      var campaign = params.get('utm_campaign') || 'job_application';
-      var content = params.get('utm_content') || 'full_portfolio';
 
-      window.clarity('set', 'site_mode', 'application_full');
-      window.clarity('set', 'entry_source', safe(source));
-      window.clarity('set', 'entry_medium', safe(medium));
-      window.clarity('set', 'entry_campaign', safe(campaign));
-      window.clarity('set', 'entry_content', safe(content));
-      window.clarity('set', 'invite_id', safe(params.get('invite_id')));
-      window.clarity('set', 'application_company', safe(params.get('application_company')));
-      window.clarity('set', 'application_platform', safe(params.get('application_platform')));
-      window.clarity('set', 'company_type', safe(params.get('company_type')));
-      window.clarity('set', 'application_role', safe(params.get('application_role')));
-      window.clarity('set', 'application_date', safe(params.get('application_date')));
-      window.clarity('set', 'application_sequence', safe(params.get('application_sequence')));
-      window.clarity('set', 'entry_route', safe((window.location.hash || '#/archive').replace(/^#\/?/, '') || 'archive'));
-      window.clarity('set', 'portfolio_access', 'granted');
-      window.clarity('event', 'application_portfolio_view');
+      window.__portfolioContextPromise.then(function (context) {
+        if (!context) return;
 
-      window.addEventListener('hashchange', function () {
-        window.clarity('set', 'portfolio_route', safe((window.location.hash || '#/').replace(/^#\/?/, '') || 'home'));
-        window.clarity('event', 'application_route_view');
+        window.clarity('set', 'site_mode', 'application_full');
+        window.clarity('set', 'entry_source', safe(context.source));
+        window.clarity('set', 'entry_medium', safe(context.medium));
+        window.clarity('set', 'entry_campaign', safe(context.campaign));
+        window.clarity('set', 'entry_content', safe(context.content));
+        window.clarity('set', 'invite_id', safe(context.inviteId));
+        window.clarity('set', 'application_company', safe(context.company));
+        window.clarity('set', 'application_platform', safe(context.platform));
+        window.clarity('set', 'company_type', safe(context.companyType));
+        window.clarity('set', 'application_role', safe(context.role));
+        window.clarity('set', 'application_date', safe(context.date));
+        window.clarity('set', 'application_sequence', safe(context.sequence));
+        window.clarity('set', 'entry_route', safe((window.location.hash || '#/archive').replace(/^#\/?/, '') || 'archive'));
+        window.clarity('set', 'portfolio_access', 'granted');
+        window.clarity('event', 'application_portfolio_view');
+
+        window.addEventListener('hashchange', function () {
+          window.clarity('set', 'portfolio_route', safe((window.location.hash || '#/').replace(/^#\/?/, '') || 'home'));
+          window.clarity('event', 'application_route_view');
+        });
       });
     })();
   </script>

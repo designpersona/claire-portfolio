@@ -20,21 +20,21 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 
 `https://designpersona.kr/go/#고유코드`
 
-짧은 주소는 `go/links.json`에서 회사·플랫폼·기업군·직무·지원일을 찾아 전체 포트폴리오 UTM 주소로 이동합니다. 지원 건이 늘어나도 페이지는 추가하지 않고 등록 스크립트로 항목 하나만 더합니다. 코드 규칙은 `APPLICATION_LINK_RULES.md`에 정의되어 있습니다.
+짧은 주소는 `go/links.json`에서 회사·플랫폼·기업군·직무·지원일을 찾은 뒤 `/portfolio.html?k=고유코드#/archive`로 이동합니다. 긴 UTM 값을 주소에 펼치지 않고 같은 값을 Clarity custom tag로 기록합니다. 지원 건이 늘어나도 페이지는 추가하지 않고 등록 스크립트로 항목 하나만 더합니다. 코드 규칙은 `APPLICATION_LINK_RULES.md`에 정의되어 있습니다.
 
 첫 등록 링크:
 
 `https://designpersona.kr/go/#smd601` — Kinkos / 사람인 / 중견·중소 / Design / 2026-08-07 / 연간 01 / 당일 1
 
-이동한 `portfolio.html`은 아래 다섯 값이 모두 있을 때만 열립니다.
+이동한 `portfolio.html`은 등록부에 있는 활성 고유 코드가 있을 때만 열립니다. Clarity에는 아래 값이 기록됩니다.
 
-- `utm_source`: 회사명
-- `utm_medium`: 반드시 `job_application`
-- `utm_campaign`: 채용 캠페인명
-- `utm_content`: 직무 또는 공고 식별자
+- `entry_source`: 지원 플랫폼
+- `entry_medium`: `job_application`
+- `entry_campaign`: 채용 캠페인명
+- `entry_content`: 회사와 직무
 - `invite_id`: 지원 건별 고유 코드
 
-하나라도 없거나 `utm_medium` 값이 다르면 공사중 페이지로 이동합니다. 이 UTM 검사는 실수로 공유한 일반 링크를 가리는 용도이며 비밀번호 수준의 보안은 아닙니다.
+등록되지 않았거나 비활성화된 코드는 404로 이동합니다. 이 코드는 실수로 공유한 일반 링크를 가리는 용도이며 비밀번호 수준의 보안은 아닙니다.
 
 공사중 페이지로 돌아간 접근은 Clarity에서 `portfolio_access=denied`, 정상 지원 링크는 `portfolio_access=granted`로 구분됩니다. `invite_id`로 같은 회사의 여러 지원 건도 나눌 수 있습니다.
 
