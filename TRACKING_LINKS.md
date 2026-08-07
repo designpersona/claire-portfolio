@@ -18,13 +18,13 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 
 기존에 전달한 `designpersona.kr/#/...` 주소는 공사중 페이지를 표시합니다. 신규 지원처에는 지원 건마다 등록한 짧은 주소를 전달합니다.
 
-`https://designpersona.kr/go/?k=고유코드`
+`https://designpersona.kr/go/#고유코드`
 
-짧은 주소는 `go/links.json`에서 회사·직무·캠페인을 찾아 전체 포트폴리오 UTM 주소로 이동합니다. 지원 건이 늘어나도 페이지는 추가하지 않고 등록 목록에 항목 하나만 더합니다.
+짧은 주소는 `go/links.json`에서 회사·플랫폼·기업군·직무·지원일을 찾아 전체 포트폴리오 UTM 주소로 이동합니다. 지원 건이 늘어나도 페이지는 추가하지 않고 등록 스크립트로 항목 하나만 더합니다. 코드 규칙은 `APPLICATION_LINK_RULES.md`에 정의되어 있습니다.
 
 첫 등록 링크:
 
-`https://designpersona.kr/go/?k=6fe518` — Kinkos / Design
+`https://designpersona.kr/go/#smd601hga` — Kinkos / 사람인 / 중견·중소 / Design / 2026-08-07 / 연간 01 / 당일 1
 
 이동한 `portfolio.html`은 아래 다섯 값이 모두 있을 때만 열립니다.
 

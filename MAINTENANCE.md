@@ -25,7 +25,7 @@
 ## Split access
 
 - `index.html`과 기존 `#/...` 링크: 공사중 페이지
-- `go/?k=고유코드`: `go/links.json`에 등록된 활성 지원 링크만 전체 포트폴리오 UTM 주소로 이동
+- `go/#고유코드`: `APPLICATION_LINK_RULES.md` 규칙으로 생성되고 `go/links.json`에 등록된 활성 지원 링크만 전체 포트폴리오 UTM 주소로 이동
 - 필수 채용 UTM 네 개와 `invite_id`가 붙은 `portfolio.html?...#/archive`: 신규 채용 지원용 전체 포트폴리오
 - UTM이나 `invite_id`가 없거나 형식이 잘못된 `portfolio.html`: 공사중 페이지로 이동
 

@@ -28,7 +28,9 @@
   </style>
   <script>
     (function () {
-      var code = (new URLSearchParams(window.location.search).get('k') || '').trim().toLowerCase();
+      var hashCode = (window.location.hash || '').replace(/^#\/?/, '');
+      var queryCode = new URLSearchParams(window.location.search).get('k') || '';
+      var code = (hashCode || queryCode).trim().toLowerCase();
 
       var deny = function (reason) {
         var denied = new URLSearchParams({
@@ -60,10 +62,16 @@
           }
 
           var target = new URLSearchParams({
-            utm_source: entry.company,
+            utm_source: entry.platform,
             utm_medium: 'job_application',
             utm_campaign: entry.campaign,
-            utm_content: entry.role,
+            utm_content: entry.company + '_' + entry.role,
+            application_company: entry.company,
+            application_platform: entry.platform,
+            company_type: entry.company_type,
+            application_role: entry.role,
+            application_date: entry.applied_at,
+            application_sequence: String(entry.annual_sequence),
             invite_id: code
           });
           window.location.replace('/portfolio.html?' + target.toString() + '#/archive');

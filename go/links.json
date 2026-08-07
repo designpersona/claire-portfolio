@@ -1,10 +1,16 @@
 {
-  "version": 1,
+  "version": 2,
   "links": {
-    "6fe518": {
+    "smd601hga": {
       "company": "kinkos",
+      "platform": "saramin",
+      "company_type": "sme",
       "role": "design",
-      "campaign": "20260807_hiring",
+      "job_title": "Design",
+      "campaign": "2026_hiring",
+      "applied_at": "2026-08-07",
+      "annual_sequence": 1,
+      "daily_sequence": 1,
       "active": true,
       "created_at": "2026-08-07"
     }
