@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#ff5a00" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
-  <title>Design Persona — Rebuilding</title>
+  <title>Design Persona — Coming Soon</title>
   <script>
     (function () {
       var route = (window.location.hash || '#/').replace(/^#\/?/, '').toLowerCase();
@@ -58,8 +58,8 @@
   </script>
   <meta name="description" content="Design Persona is being rebuilt. For project and collaboration inquiries, please contact by email." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Design Persona — Rebuilding" />
-  <meta property="og:description" content="The portfolio is temporarily closed while Design Persona is being rebuilt." />
+  <meta property="og:title" content="Design Persona — Coming Soon" />
+  <meta property="og:description" content="A new Design Persona portfolio is taking shape." />
   <link rel="icon" href="./assets/icons/favicon2.png" sizes="any" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -78,7 +78,7 @@
     :root {
       color-scheme: light;
       --ink: #111111;
-      --paper: #f4efe7;
+      --paper: #ffffff;
       --accent: #ff5a00;
       --line: rgba(17, 17, 17, 0.22);
     }
@@ -232,6 +232,8 @@
       text-decoration: none;
     }
 
+    .contact-link + .contact-link { border-top: 0; }
+
     .contact-link svg {
       width: 22px;
       height: 22px;
@@ -293,28 +295,34 @@
         </svg>
         <span>Design Persona</span>
       </div>
-      <div class="status">Rebuilding</div>
+      <div class="status">Coming soon</div>
     </header>
 
     <main class="main">
       <section class="message" aria-labelledby="pageTitle">
         <div>
-          <p class="eyebrow">Portfolio temporarily closed</p>
+          <p class="eyebrow">Design Persona Portfolio</p>
           <h1 id="pageTitle">Under<br /><span>rebuild.</span></h1>
         </div>
         <p class="summary">
-          포트폴리오를 잠시 닫았습니다.<br />
-          새로운 구조와 새로운 작업으로 곧 돌아옵니다.
+          A new portfolio is taking shape.<br />
+          Coming soon.
         </p>
       </section>
 
       <aside class="contact-panel" aria-labelledby="contactTitle">
-        <p class="contact-label">Project / Collaboration</p>
+        <p class="contact-label">Collaboration / Business</p>
         <p class="contact-copy" id="contactTitle">
-          특정 작업을 보러 오셨거나 함께할 일이 있다면 바로 알려주세요.
+          For collaborations and business inquiries, get in touch by email or chat.
         </p>
         <a class="contact-link" id="emailInquiry" href="mailto:designpersona.kr@gmail.com">
-          <span>designpersona.kr@gmail.com</span>
+          <span>Email</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 19 19 5M9 5h10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a class="contact-link" id="chatInquiry" href="https://example.com/designpersona-chat" target="_blank" rel="noopener noreferrer">
+          <span>Chat</span>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M5 19 19 5M9 5h10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -366,11 +374,11 @@
       });
 
       var email = document.getElementById("emailInquiry");
-      var subject = "[Design Persona] Portfolio inquiry";
+      var subject = "[Design Persona] Collaboration / Business inquiry";
       var body = [
-        "안녕하세요. Design Persona 포트폴리오를 보고 문의드립니다.",
+        "Hello Design Persona,",
         "",
-        "보고 싶었던 작업 / 문의 내용:",
+        "I would like to discuss:",
         "",
         "---",
         "Entry reference: " + safe(source) + " / " + safe(content)
@@ -379,6 +387,11 @@
       email.href = "mailto:designpersona.kr@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       email.addEventListener("click", function () {
         window.clarity("event", "email_inquiry_click");
+      });
+
+      var chat = document.getElementById("chatInquiry");
+      chat.addEventListener("click", function () {
+        window.clarity("event", "chat_inquiry_click");
       });
     })();
   </script>
