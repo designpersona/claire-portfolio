@@ -117,6 +117,7 @@
     .brand {
       display: inline-flex;
       align-items: center;
+      font-size: clamp(18px, 1.6vw, 22px);
       font-weight: 600;
       letter-spacing: -0.02em;
     }
@@ -125,15 +126,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .status::before {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--accent);
       content: "";
@@ -187,7 +187,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: clamp(28px, 4vw, 64px);
+      padding: clamp(36px, 6vw, 96px) clamp(28px, 4vw, 64px);
       background: var(--accent);
       border-left: 1px solid var(--ink);
     }
@@ -242,7 +242,7 @@
     .footer {
       justify-content: center;
       background: var(--ink);
-      color: var(--paper);
+      color: #b3b3b3;
       font-size: 12px;
       line-height: 1.5;
       text-align: center;
