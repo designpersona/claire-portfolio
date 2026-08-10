@@ -33,6 +33,7 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 - `entry_campaign`: 채용 캠페인명
 - `entry_content`: 회사와 직무
 - `invite_id`: 지원 건별 고유 코드
+- `application_contact_route`: 일반 지원인지 헤드헌터 제안인지 구분
 
 등록되지 않았거나 비활성화된 코드는 404로 이동합니다. 이 코드는 실수로 공유한 일반 링크를 가리는 용도이며 비밀번호 수준의 보안은 아닙니다.
 

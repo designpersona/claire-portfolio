@@ -77,6 +77,10 @@ const company = String(args.company).trim().toLowerCase();
 const platform = requireChoice('platform', args.platform, platformCodes);
 const companyType = requireChoice('company-type', args['company-type'], companyTypeCodes);
 const role = requireChoice('role', args.role, roleCodes);
+const contactRoute = String(args['contact-route'] || 'standard').trim().toLowerCase();
+if (!/^[a-z0-9_-]{2,40}$/.test(contactRoute)) {
+  throw new Error('contact-route는 영문 소문자, 숫자, _, -만 사용할 수 있습니다.');
+}
 const dateMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(args.date));
 if (!dateMatch) throw new Error('date는 YYYY-MM-DD 형식이어야 합니다.');
 
@@ -120,6 +124,7 @@ const entry = {
   platform,
   company_type: companyType,
   role,
+  contact_route: contactRoute,
   job_title: String(args['job-title'] || args.role).trim(),
   campaign: `${year}_hiring`,
   applied_at: args.date,

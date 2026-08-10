@@ -70,7 +70,10 @@ node scripts/create-application-link.mjs \
   --company-type sme \
   --role design \
   --job-title "Design" \
+  --contact-route standard \
   --date 2026-08-07
 ```
+
+헤드헌터 제안으로 전달받은 건은 `--contact-route headhunter`를 사용합니다.
 
 등록 전 결과만 확인하려면 끝에 `--dry-run`을 붙입니다.

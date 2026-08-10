@@ -48,6 +48,7 @@
             platform: entry.platform,
             companyType: entry.company_type,
             role: entry.role,
+            contactRoute: entry.contact_route || 'standard',
             date: entry.applied_at,
             sequence: String(entry.annual_sequence)
           };
@@ -94,6 +95,7 @@
         window.clarity('set', 'application_platform', safe(context.platform));
         window.clarity('set', 'company_type', safe(context.companyType));
         window.clarity('set', 'application_role', safe(context.role));
+        window.clarity('set', 'application_contact_route', safe(context.contactRoute));
         window.clarity('set', 'application_date', safe(context.date));
         window.clarity('set', 'application_sequence', safe(context.sequence));
         window.clarity('set', 'entry_route', safe((window.location.hash || '#/archive').replace(/^#\/?/, '') || 'archive'));
