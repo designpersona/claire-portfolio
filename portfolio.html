@@ -40,7 +40,7 @@
 
           var context = {
             source: entry.platform,
-            medium: 'job_application',
+            medium: entry.entry_medium || 'job_application',
             campaign: entry.campaign,
             content: entry.company + '_' + entry.role,
             inviteId: code,
@@ -49,8 +49,8 @@
             companyType: entry.company_type,
             role: entry.role,
             contactRoute: entry.contact_route || 'standard',
-            date: entry.applied_at,
-            sequence: String(entry.annual_sequence)
+            date: entry.entry_date || entry.applied_at || '',
+            sequence: String(entry.annual_sequence || '')
           };
 
           document.documentElement.setAttribute('data-portfolio-access', 'granted');

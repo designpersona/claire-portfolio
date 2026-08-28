@@ -27,6 +27,19 @@
       "daily_sequence": 1,
       "active": true,
       "created_at": "2026-08-10"
+    },
+    "fair26": {
+      "company": "external_fair",
+      "platform": "external_fair",
+      "company_type": "event",
+      "role": "portfolio_preview",
+      "contact_route": "collaboration",
+      "entry_medium": "event",
+      "job_title": "External fair portfolio preview",
+      "campaign": "2026_external_fair",
+      "entry_date": "2026-08-28",
+      "active": true,
+      "created_at": "2026-08-28"
     }
   }
 }

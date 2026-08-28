@@ -26,6 +26,12 @@ Clarity에서는 **Filters → Custom tags**에서 위 항목으로 세션과 �
 
 `https://designpersona.kr/go/#smd601` — Kinkos / 사람인 / 중견·중소 / Design / 2026-08-07 / 연간 01 / 당일 1
 
+## 외부 행사 공개용 포트폴리오
+
+`https://designpersona.kr/go/#fair26`
+
+박람회·전시 등에서 협업 관심자에게 공개하는 전용 링크입니다. Clarity에서 `entry_source=external_fair`, `entry_medium=event`, `entry_campaign=2026_external_fair`로 분리됩니다. 행사가 끝나면 `go/links.json`의 `fair26` 항목에서 `active`를 `false`로 바꾸면 즉시 닫힙니다.
+
 이동한 `portfolio.html`은 등록부에 있는 활성 고유 코드가 있을 때만 열립니다. Clarity에는 아래 값이 기록됩니다.
 
 - `entry_source`: 지원 플랫폼
