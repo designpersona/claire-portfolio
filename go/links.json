@@ -40,6 +40,18 @@
       "entry_date": "2026-08-28",
       "active": true,
       "created_at": "2026-08-28"
+    },
+    "me26dp": {
+      "company": "owner_preview",
+      "platform": "direct",
+      "company_type": "internal",
+      "role": "portfolio_preview",
+      "entry_medium": "owner_preview",
+      "job_title": "Owner portfolio preview",
+      "campaign": "2026_owner_preview",
+      "entry_date": "2026-08-31",
+      "active": true,
+      "created_at": "2026-08-31"
     }
   }
 }

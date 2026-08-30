@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#ff5a00" />
+  <meta name="theme-color" content="#d8ff00" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <title>Design Persona — Portfolio</title>
@@ -79,7 +79,7 @@
       color-scheme: light;
       --ink: #111111;
       --paper: #ffffff;
-      --accent: #ff5a00;
+      --accent: #d8ff00;
     }
 
     * { box-sizing: border-box; }
@@ -167,12 +167,15 @@
       max-width: 1040px;
       margin: 0;
       font-size: clamp(66px, 11.5vw, 180px);
-      font-weight: 600;
+      font-weight: 400;
       letter-spacing: -0.065em;
       line-height: 0.82;
     }
 
-    h1 span { color: var(--accent); }
+    h1 span {
+      color: var(--ink);
+      font-weight: 700;
+    }
 
     .summary {
       max-width: 620px;
