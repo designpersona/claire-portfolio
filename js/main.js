@@ -1017,7 +1017,6 @@ function aboutHTML() {
     <article class="about-page-content max-w-none">
       <section class="about-hero">
         <div class="about-identity flex flex-row items-start gap-5 md:h-full">
-          <img src="assets/icons/DesignPersona.png" alt="Design Persona" class="about-mark hidden md:block h-full w-auto object-contain max-h-[180px]" />
           <div>
             <h1 class="about-name">${t('aboutName')}</h1>
             <h2 class="about-role">${t('aboutRole')}</h2>
@@ -1671,7 +1670,7 @@ function dashboardCategoryCellHTML(category) {
   `;
 }
 
-const DESIGN_PERSONA_MARK_SVG = '<svg class="design-persona-mark" viewBox="0 0 50 50" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.35 0h9.15c4.15 0 7.2 3.12 7.72 7.48H25c-7.1 0-12.15-2.78-12.65-7.48Z"></path><circle cx="25" cy="30.85" r="16.9" fill="none" stroke="currentColor" stroke-width="4.15"></circle></svg>';
+const DESIGN_PERSONA_MARK_SVG = '';
 
 function landingFeaturedProjectHTML() {
   const project = state.projects.find((item) => item.slug === 'chatlog');
