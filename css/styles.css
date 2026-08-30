@@ -1,5 +1,5 @@
 :root {
-  --accent-orange: #d8ff00;
+  --accent-orange: #f7ccf8;
   --page-gutter: clamp(24px, 3vw, 48px);
   --surface-soft: #f7f5f2;
   --surface-card: #ffffff;
@@ -1707,7 +1707,7 @@ body.archive-page-active .home-description {
   content: "";
   position: absolute;
   inset: -6%;
-  background: radial-gradient(circle at calc(78% - (var(--scroll-progress, 0) * 34%)) calc(38% + (var(--scroll-progress, 0) * 28%)), rgba(221, 255, 25, 0.2), transparent 38%);
+  background: radial-gradient(circle at calc(78% - (var(--scroll-progress, 0) * 34%)) calc(38% + (var(--scroll-progress, 0) * 28%)), rgba(247, 204, 248, 0.2), transparent 38%);
   opacity: 0.75;
   pointer-events: none;
   transform: translate3d(calc((0.5 - var(--scroll-progress, 0)) * 42px), calc((var(--scroll-progress, 0) - 0.5) * 34px), 0);

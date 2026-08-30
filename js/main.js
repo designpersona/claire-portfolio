@@ -1945,11 +1945,11 @@ function renderCategory(categorySlug, skipScroll = false) {
   const mainHeader = document.getElementById('mainHeader');
   const topBar = document.getElementById('topBar');
   if (mainHeader) {
-    mainHeader.style.backgroundColor = '#ffb000';
+    mainHeader.style.backgroundColor = '#f7ccf8';
     mainHeader.style.borderBottom = '0';
     mainHeader.style.boxShadow = 'none';
     Array.from(mainHeader.children).forEach((child) => {
-      child.style.backgroundColor = '#ffb000';
+      child.style.backgroundColor = '#f7ccf8';
       child.style.borderBottom = '0';
     });
   }
